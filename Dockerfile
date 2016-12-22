@@ -13,5 +13,6 @@ ENV \
 COPY rootfs /
 
 VOLUME /opt/daspanel/services
+ENTRYPOINT ["/init"]
 CMD []
 
