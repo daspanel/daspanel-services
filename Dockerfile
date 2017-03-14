@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM daspanel/alpine-base
 MAINTAINER Abner G Jacobsen - http://daspanel.com <admin@daspanel.com>
 
 # Set default env variables

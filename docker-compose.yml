@@ -1,8 +1,5 @@
 version: '2'
 services:
     daspanel-daspanel-services:
-        build:
-            context: .
-            dockerfile: Dockerfile
         image: daspanel/daspanel-services
 
