@@ -9,9 +9,40 @@ ENV \
     # Timezone
     TZ="UTC" 
 
+# PHP modules to install
+ARG PHP_MODULES="php7-ctype php7-curl php7-dom php7-gd php7-iconv php7-intl \
+    php7-json php7-mcrypt php7-mysqli php7-openssl \
+    php7-pdo php7-pdo_mysql php7-pdo_pgsql php7-pdo_sqlite php7-pear \
+    php7-pgsql php7-phar php7-sqlite3 php7-xml php7-zip php7-zlib \
+    php7-pcntl php7-ftp php7-gettext php7-imap php7-session php7-mbstring"
+
+ARG CADDY_PLUGINS="cors,expires,ipfilter,locale,minify,ratelimit,realip,cloudflare,digitalocean,linode,route53"
+ARG CADDY_URL="https://caddyserver.com/download/build?os=linux&arch=amd64&features=${CADDY_PLUGINS}"
+
+RUN apk update && \
+    apk --update --no-cache add --virtual build_deps curl && \
+    apk add --no-cache --update php7-fpm php7 $PHP_MODULES && \
+    ln -s /usr/bin/php7 /usr/bin/php && \
+    ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm && \
+    ln -s /usr/lib/php7 /usr/lib/php && \
+    curl -sS https://getcomposer.org/installer \
+        | php -- --install-dir=/usr/bin --filename=composer && \
+    curl --silent --show-error --fail --location \
+      --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
+      "${CADDY_URL}" \
+    | tar --no-same-owner -C /usr/sbin/ -xz caddy && \
+    chmod 0755 /usr/sbin/caddy && \
+    apk del build_deps && \
+    rm -rf \
+        /var/cache/apk/* \
+        /usr/local/* \
+        /tmp/src \
+        /tmp/*
+
 # Inject files in container file system
 COPY rootfs /
 
-VOLUME /opt/daspanel/services
-CMD []
+# Expose ports for the service
+EXPOSE 8080
+
 
