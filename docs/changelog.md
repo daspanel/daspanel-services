@@ -3,16 +3,8 @@
 ### daspanel-services-0.1.1
 __Changes__
 
-- See changes in CHANGELOG.md
-- bumped to version 0.1.1
-- Added cmd command as Docker need it.
-- first commit
 
-__Contributors__
-
-- Abner G Jacobsen
-
-Released by Abner G Jacobsen, Wed 21 Dec 2016 -
+Released by N/A, Sat 24 Jun 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
@@ -61,9 +53,28 @@ Released by Abner G Jacobsen, Mon 27 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
+### 0.4.0
+__Changes__
+
+- bumped to version 0.4.0
+- Upgraded Adminer to version 4.3.1
+- Merge pull request #1 from daspanel/sites-config
+  
+  Modified container initialization to get system settings using an API call
+
+__Contributors__
+
+- Abner G Jacobsen
+- admindaspanel
+
+Released by Abner G Jacobsen, Sat 24 Jun 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.3.0...0.4.0#diff)
+______________
+
 ### 0.3.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.3.0
 - Changed release naming convention.
 - Modified container initialization to get system settings using an API call.
