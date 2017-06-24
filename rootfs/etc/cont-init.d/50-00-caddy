@@ -8,11 +8,25 @@ if [ -z "$DASPANEL_SYS_UUID" ]; then
     exit 1
 fi
 
+case "$DASPANEL_WAIT_FOR_API" in
+    YES|yes|Yes)
+        echo "[DASPANEL] Waiting 60 seconds for API: $0" >&2
+        /opt/daspanel/bin/wait-for-api -t 60 $DASPANEL_SYS_APISERVER/info/status
+        result=$?
+        if [ ! $result -eq 0 ] ; then
+            echo "[DASPANEL] Can not connect to API: $DASPANEL_SYS_APISERVER/info/status" >&2
+            exit 1
+        fi
+        ;;
+    *) 
+        echo "[DASPANEL] Container not need to wait API become online: $0" >&2
+        exit 1
+        ;;
+esac
+
 if [ ! -d "/etc/caddy" ]; then
     mkdir -p /etc/caddy
 fi
-
-export DASPANEL_SYS_HOSTNAME=`cat /opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json | /usr/bin/jq -r '.sys.hostname'`
 
 log() {
   if [[ "$@" ]]; then echo "[`date +'%Y-%m-%d %T'`] $@";
@@ -24,9 +38,10 @@ if [ ! -d "/opt/daspanel/log/$DASPANEL_SYS_UUID/caddy" ]; then
 fi
 
 # Configure caddy
-/usr/bin/gomplate -d cfg=file:///opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json \
-  < /opt/daspanel/conf-templates/daspanel-services/caddy/caddyfile.tmpl \
-  > /etc/caddy/caddyfile
+/usr/bin/gomplate -d cfg=$DASPANEL_SYS_APISERVER/tenants/$DASPANEL_SYS_UUID \
+    -H "cfg=Authorization: $DASPANEL_SYS_APIKEY" \
+    < /opt/daspanel/conf-templates/daspanel-services/caddy/caddyfile.tmpl \
+    > /etc/caddy/caddyfile
 
 # secure daspanel
 chown -R daspanel:daspanel /opt/daspanel/data
