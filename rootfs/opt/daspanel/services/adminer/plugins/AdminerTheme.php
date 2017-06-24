@@ -4,26 +4,26 @@
  * Adds support for Pematon's custom theme.
  * This includes meta headers, touch icons and other stuff.
  *
- * @author Peter Knut
+ * @author    Peter Knut
  * @copyright 2014-2015 Pematon, s.r.o. (http://www.pematon.com/)
  */
-class AdminerTheme
-{
+class AdminerTheme {
 	/** @var string */
 	private $themeName;
 
 	/**
 	 * @param string $themeName File with this name and .css extension should be located in css folder.
 	 */
-	function AdminerTheme($themeName = "default-orange")
+	function AdminerTheme($themeName = "bootstrap-like")
 	{
-		define("PMTN_ADMINER_THEME", true);
+		define("PMTN_ADMINER_THEME", TRUE);
 
 		$this->themeName = $themeName;
 	}
 
 	/**
 	 * Prints HTML code inside <head>.
+	 *
 	 * @return false
 	 */
 	public function head()
@@ -37,18 +37,18 @@ class AdminerTheme
 		<link rel="icon" type="image/ico" href="images/favicon.png">
 
 		<?php
-			// Condition for Windows Phone has to be the first, because IE11 contains also iPhone and Android keywords.
-			if (strpos($userAgent, "Windows") !== false):
-		?>
+		// Condition for Windows Phone has to be the first, because IE11 contains also iPhone and Android keywords.
+		if (strpos($userAgent, "Windows") !== FALSE):
+			?>
 			<meta name="application-name" content="Adminer"/>
 			<meta name="msapplication-TileColor" content="#ffffff"/>
 			<meta name="msapplication-square150x150logo" content="images/tileIcon.png"/>
 			<meta name="msapplication-wide310x150logo" content="images/tileIcon-wide.png"/>
 
-		<?php elseif (strpos($userAgent, "iPhone") !== false || strpos($userAgent, "iPad") !== false): ?>
+		<?php elseif (strpos($userAgent, "iPhone") !== FALSE || strpos($userAgent, "iPad") !== FALSE): ?>
 			<link rel="apple-touch-icon-precomposed" href="images/touchIcon.png"/>
 
-		<?php elseif (strpos($userAgent, "Android") !== false): ?>
+		<?php elseif (strpos($userAgent, "Android") !== FALSE): ?>
 			<link rel="apple-touch-icon-precomposed" href="images/touchIcon-android.png?2"/>
 
 		<?php else: ?>
@@ -58,10 +58,10 @@ class AdminerTheme
 		<link rel="stylesheet" type="text/css" href="css/<?php echo htmlspecialchars($this->themeName) ?>.css?2">
 
 		<script>
-			(function(window) {
+			(function (window) {
 				"use strict";
 
-				window.addEventListener("load", function() {
+				window.addEventListener("load", function () {
 					prepareMenuButton();
 				}, false);
 
@@ -72,7 +72,7 @@ class AdminerTheme
 						return;
 					}
 
-					button.addEventListener("click", function() {
+					button.addEventListener("click", function () {
 						if (menu.className.indexOf(" open") >= 0) {
 							menu.className = menu.className.replace(/ *open/, "");
 						} else {
@@ -89,6 +89,13 @@ class AdminerTheme
 
 		// Return false to disable linking of adminer.css and original favicon.
 		// Warning! This will stop executing head() function in all plugins defined after AdminerTheme.
-		return false;
+		return FALSE;
 	}
+
+
+	function name()
+	{
+		return "<a href='https://www.adminer.org/' target='_blank' id='h1'>Adminer</a>";
+	}
+
 }
