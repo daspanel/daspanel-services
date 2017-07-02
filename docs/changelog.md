@@ -1,5 +1,20 @@
 # Changelog - admindaspanel / daspanel-services
 
+### daspanel-services-0.1.3
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.1.3
+- Make container compatible with new Daspanel init/configuration system
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Tue 14 Mar 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
 ### daspanel-services-0.2.0
 __Changes__
 
@@ -15,10 +30,10 @@ Released by Abner G Jacobsen, Mon 27 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
-### 0.6.0
+### 0.7.0
 __Changes__
 
-- bumped to version 0.6.0
+- bumped to version 0.7.0
 - Added browscap.ini to image to shorten container initialization time.
 
 __Contributors__
@@ -27,7 +42,7 @@ __Contributors__
 - admindaspanel
 
 Released by Abner G Jacobsen, Sat 01 Jul 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.5.0...0.6.0#diff)
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.6.0...0.7.0#diff)
 ______________
 
 ### daspanel-services-0.1.1
@@ -53,19 +68,19 @@ Released by Abner G Jacobsen, Wed 21 Dec 2016 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
-### daspanel-services-0.1.3
+### 0.6.0
 __Changes__
 
 - See changes in CHANGELOG.md
-- bumped to version 0.1.3
-- Make container compatible with new Daspanel init/configuration system
+- bumped to version 0.6.0
+- Added browscap.ini to image to shorten container initialization time.
 
 __Contributors__
 
 - Abner G Jacobsen
 
-Released by Abner G Jacobsen, Tue 14 Mar 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+Released by Abner G Jacobsen, Sat 01 Jul 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.5.0...0.6.0#diff)
 ______________
 
 ### 0.5.0
