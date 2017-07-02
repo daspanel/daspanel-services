@@ -1,10 +1,25 @@
 # Changelog - admindaspanel / daspanel-services
 
+### 0.5.0
+__Changes__
+
+- bumped to version 0.5.0
+- Removed dependence from daspanel/alpine-base.
+
+__Contributors__
+
+- Abner G Jacobsen
+- admindaspanel
+
+Released by Abner G Jacobsen, Sat 01 Jul 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.4.0...0.5.0#diff)
+______________
+
 ### daspanel-services-0.1.1
 __Changes__
 
 
-Released by N/A, Sat 24 Jun 2017 -
+Released by N/A, Sat 01 Jul 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
@@ -56,6 +71,7 @@ ______________
 ### 0.4.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.4.0
 - Upgraded Adminer to version 4.3.1
 - Merge pull request #1 from daspanel/sites-config
