@@ -117,9 +117,9 @@ mkdir -p "${CACHE_PREFIX}"/php-fpm7/
 rm -Rf /etc/php7/php-fpm.d/*
 
 # Get Browsecap
-echo "[DASPANEL-$DASPANEL_CONTAINER_TYPE] Installing latest: https://browscap.org/stream?q=PHP_BrowsCapINI" >&2
-mkdir -p /etc/php7/extra
-wget -O /etc/php7/extra/browscap.ini "https://browscap.org/stream?q=PHP_BrowsCapINI"
+#echo "[DASPANEL-$DASPANEL_CONTAINER_TYPE] Installing latest: https://browscap.org/stream?q=PHP_BrowsCapINI" >&2
+#mkdir -p /etc/php7/extra
+#wget -O /etc/php7/extra/browscap.ini "https://browscap.org/stream?q=PHP_BrowsCapINI"
 
 # Generate config
 run
