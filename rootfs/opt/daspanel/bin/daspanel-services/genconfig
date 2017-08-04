@@ -79,14 +79,18 @@ function php-fpm() {
 function permissions() {
 
     echo "[DASPANEL-$DASPANEL_CONTAINER_TYPE] Setting ownership and permissions on APP_DOCROOT and CACHE_PREFIX... "
-    find ${APP_DOCROOT} ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
-    find ${PHP_CHDIR} ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
+    #find ${APP_DOCROOT} ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
+    #find ${PHP_CHDIR} ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
+    chown -R daspanel:daspanel ${APP_DOCROOT}
+    chown -R daspanel:daspanel ${PHP_CHDIR}
+
     find ${PHP_SESSION_PATH} ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
     find ${CACHE_PREFIX}/fastcgi ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
     find ${CACHE_PREFIX}/php-fpm7 ! -user daspanel -exec /usr/bin/env bash -c "chown daspanel:daspanel {}" \;
 
-    find ${APP_DOCROOT} ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
-    find ${APP_DOCROOT} ! -perm 644 -type f -exec /usr/bin/env bash -c "chmod 644 {}" \;
+    #find ${APP_DOCROOT} ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
+    #find ${APP_DOCROOT} ! -perm 644 -type f -exec /usr/bin/env bash -c "chmod 644 {}" \;
+    chmod 755-R daspanel:daspanel ${APP_DOCROOT}
 
     find ${CACHE_PREFIX}/fastcgi ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
     find ${CACHE_PREFIX}/fastcgi ! -perm 755 -type f -exec /usr/bin/env bash -c "chmod 755 {}" \;
@@ -94,8 +98,9 @@ function permissions() {
     find ${CACHE_PREFIX}/php-fpm7 ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
     find ${CACHE_PREFIX}/php-fpm7 ! -perm 755 -type f -exec /usr/bin/env bash -c "chmod 755 {}" \;
 
-    find ${PHP_CHDIR} ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
-    find ${PHP_CHDIR} ! -perm 644 -type f -exec /usr/bin/env bash -c "chmod 644 {}" \;
+    #find ${PHP_CHDIR} ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
+    #find ${PHP_CHDIR} ! -perm 644 -type f -exec /usr/bin/env bash -c "chmod 644 {}" \;
+    chmod 755-R daspanel:daspanel ${APP_DOCROOT}
 
     find ${PHP_SESSION_PATH} ! -perm 755 -type d -exec /usr/bin/env bash -c "chmod 755 {}" \;
     find ${PHP_SESSION_PATH} ! -perm 644 -type f -exec /usr/bin/env bash -c "chmod 644 {}" \;
