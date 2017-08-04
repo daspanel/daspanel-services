@@ -42,7 +42,7 @@ ARG PHP_MODULES="php7-pgsql php7-sqlite3 php7-memcached php7-mailparse \
     php7-mailparse \
     php7-pdo_dblib"
     
-ARG PHP_MODULES_EXTRA=""
+ARG PHP_MODULES_EXTRA="ffmpeg php7-imagick"
 
 ARG PHP_XDEBUG=""
 ARG PHP_PHPDBG=""

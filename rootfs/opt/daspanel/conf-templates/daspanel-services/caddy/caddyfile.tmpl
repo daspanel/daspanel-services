@@ -10,6 +10,7 @@ adminer.svc.{{ (datasource "cfg").sys.hostname }}:443 {
 
 # RichFilemanager
 fm.svc.{{ (datasource "cfg").sys.hostname }}:443 {
+    basicauth / {{ (datasource "cfg").sys.admin }} {{ (datasource "cfg").sys.password }}
     log / stdout "[DASPANEL-FILEMANAGER-ACCESSLOG] {>Referer} {remote} {when} {method} {uri} {proto} {status} {size} {>User-Agent} {latency} {request}"
     errors stdout
     root /opt/daspanel/services/RichFilemanager
