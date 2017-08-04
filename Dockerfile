@@ -137,6 +137,11 @@ RUN set -x \
     # Cleanup after phpizing
     #&& rm -rf /usr/include/php7 /usr/lib/php7/build \
 
+    # Install RichFilemanager php connector
+    && cd /opt/daspanel/services/RichFilemanager \
+    && composer update \
+    && composer require aws/aws-sdk-php \
+
     # Change www-data user and group to Daspanel default
     #&& usermod -u 1000 www-data \
     #&& groupmod -g 1000 www-data \
