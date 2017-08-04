@@ -8,3 +8,13 @@ adminer.svc.{{ (datasource "cfg").sys.hostname }}:443 {
     fastcgi / 127.0.0.1:9000 php
 }
 
+# RichFilemanager
+fm.svc.{{ (datasource "cfg").sys.hostname }}:443 {
+    log / stdout "[DASPANEL-FILEMANAGER-ACCESSLOG] {>Referer} {remote} {when} {method} {uri} {proto} {status} {size} {>User-Agent} {latency} {request}"
+    errors stdout
+    root /opt/daspanel/services/RichFilemanager
+    gzip
+    tls self_signed
+    fastcgi / 127.0.0.1:9000 php
+}
+
