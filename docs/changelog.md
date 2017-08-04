@@ -1,5 +1,20 @@
 # Changelog - admindaspanel / daspanel-services
 
+### daspanel-services-0.1.2
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.1.2
+- Corrections in Dockerfile.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Wed 21 Dec 2016 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
 ### daspanel-services-0.1.3
 __Changes__
 
@@ -30,42 +45,47 @@ Released by Abner G Jacobsen, Mon 27 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
-### 0.7.0
+### 0.8.0
 __Changes__
 
-- bumped to version 0.7.0
-- Added browscap.ini to image to shorten container initialization time.
+- bumped to version 0.8.0
+- Added Richfilemanager.
+- Added Richfilemanager.
+- Added Richfilemanager.
+- Added Richfilemanager.
+- Install Richfilemanager
+- Solved problem when dir files uses specias chars.
 
 __Contributors__
 
 - Abner G Jacobsen
 - admindaspanel
 
-Released by Abner G Jacobsen, Sat 01 Jul 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.6.0...0.7.0#diff)
+Released by Abner G Jacobsen, Thu 03 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.7.0...0.8.0#diff)
 ______________
 
 ### daspanel-services-0.1.1
 __Changes__
 
 
-Released by N/A, Sat 01 Jul 2017 -
+Released by N/A, Thu 03 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
-### daspanel-services-0.1.2
+### 0.7.0
 __Changes__
 
 - See changes in CHANGELOG.md
-- bumped to version 0.1.2
-- Corrections in Dockerfile.
+- bumped to version 0.7.0
+- Added browscap.ini to image to shorten container initialization time.
 
 __Contributors__
 
 - Abner G Jacobsen
 
-Released by Abner G Jacobsen, Wed 21 Dec 2016 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+Released by Abner G Jacobsen, Sat 01 Jul 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.6.0...0.7.0#diff)
 ______________
 
 ### 0.6.0
