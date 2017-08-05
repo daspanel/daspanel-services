@@ -1,25 +1,34 @@
 # Changelog - admindaspanel / daspanel-services
 
-### daspanel-services-0.1.1
+### 0.10.0
 __Changes__
 
+- bumped to version 0.10.0
+- A bit more of security.
+- Changed the way RichFileManager is installed.
+- Removed entries relative to python and another languages.
 
-Released by N/A, Fri 04 Aug 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+__Contributors__
+
+- Abner G Jacobsen
+- admindaspanel
+
+Released by Abner G Jacobsen, Sat 05 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.9.1...0.10.0#diff)
 ______________
 
-### daspanel-services-0.1.2
+### daspanel-services-0.2.0
 __Changes__
 
 - See changes in CHANGELOG.md
-- bumped to version 0.1.2
-- Corrections in Dockerfile.
+- bumped to version 0.2.0
+- Transformed the container into a standalone service with Caddy and PHP7 in preparation for the Daspanel Proxy implementation.
 
 __Contributors__
 
 - Abner G Jacobsen
 
-Released by Abner G Jacobsen, Wed 21 Dec 2016 -
+Released by Abner G Jacobsen, Mon 27 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
@@ -38,31 +47,39 @@ Released by Abner G Jacobsen, Tue 14 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
-### daspanel-services-0.2.0
+### daspanel-services-0.1.2
 __Changes__
 
 - See changes in CHANGELOG.md
-- bumped to version 0.2.0
-- Transformed the container into a standalone service with Caddy and PHP7 in preparation for the Daspanel Proxy implementation.
+- bumped to version 0.1.2
+- Corrections in Dockerfile.
 
 __Contributors__
 
 - Abner G Jacobsen
 
-Released by Abner G Jacobsen, Mon 27 Mar 2017 -
+Released by Abner G Jacobsen, Wed 21 Dec 2016 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
+### daspanel-services-0.1.1
+__Changes__
+
+
+Released by N/A, Sat 05 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
 ### 0.9.1
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.9.1
 - Bugfix
 
 __Contributors__
 
 - Abner G Jacobsen
-- admindaspanel
 
 Released by Abner G Jacobsen, Fri 04 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.9.0...0.9.1#diff)
