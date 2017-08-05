@@ -42,7 +42,7 @@ ARG PHP_MODULES="php7-pgsql php7-sqlite3 php7-memcached php7-mailparse \
     php7-mailparse \
     php7-pdo_dblib"
     
-ARG PHP_MODULES_EXTRA="ffmpeg php7-imagick"
+ARG PHP_MODULES_EXTRA=""
 
 ARG PHP_XDEBUG=""
 ARG PHP_PHPDBG=""
@@ -137,8 +137,13 @@ RUN set -x \
     # Cleanup after phpizing
     #&& rm -rf /usr/include/php7 /usr/lib/php7/build \
 
-    # Install RichFilemanager php connector
-    && cd /opt/daspanel/services/RichFilemanager \
+    # Install RichFilemanager
+    && cd /opt/daspanel/services \
+    && wget https://github.com/servocoder/RichFilemanager/archive/v2.5.1.zip \
+    && unzip v2.5.1.zip \
+    && mv RichFilemanager-2.5.1 RichFilemanager \
+    && rm v2.5.1.zip \
+    && cd RichFilemanager \
     && composer update \
     && composer require aws/aws-sdk-php \
 
