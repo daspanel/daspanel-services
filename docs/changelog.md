@@ -53,16 +53,31 @@ Released by Abner G Jacobsen, Mon 27 Mar 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
 ______________
 
+### 0.9.1
+__Changes__
+
+- bumped to version 0.9.1
+- Bugfix
+
+__Contributors__
+
+- Abner G Jacobsen
+- admindaspanel
+
+Released by Abner G Jacobsen, Fri 04 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.9.0...0.9.1#diff)
+______________
+
 ### 0.9.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.9.0
 - First working version of the file manager service.
 
 __Contributors__
 
 - Abner G Jacobsen
-- admindaspanel
 
 Released by Abner G Jacobsen, Fri 04 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.8.0...0.9.0#diff)
