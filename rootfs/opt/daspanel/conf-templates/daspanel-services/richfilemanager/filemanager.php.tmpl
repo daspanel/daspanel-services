@@ -82,11 +82,10 @@ function fm_has_write_permission($filepath)
     return true;
 }
 
-
 $config = [                                    
         'options' => [     
                 'serverRoot' => false,                                            
-                'fileRoot' => '/opt/daspanel/data/{{getenv "DASPANEL_SYS_UUID"}}/content',                
+                'fileRoot' => '/opt/daspanel/data',                
         ],
     'security' => [                                                                   
         'readOnly' => false,
@@ -137,17 +136,89 @@ $config = [
         ],             
     ],                                                                 
 ];  
+
+$config_s3 = [
+    'security' => [
+        'readOnly' => false,
+        'extensions' => [
+            'policy' => 'ALLOW_LIST',
+            'restrictions' => [
+                "",
+                "jpg",
+                "jpe",
+                "jpeg",
+                "gif",
+                "png",
+                "svg",
+                "txt",
+                "pdf",
+                "odp",
+                "ods",
+                "odt",
+                "rtf",
+                "doc",
+                "docx",
+                "xls",
+                "xlsx",
+                "ppt",
+                "pptx",
+                "csv",
+                "ogv",
+                "avi",
+                "mkv",
+                "mp4",
+                "webm",
+                "m4v",
+                "ogg",
+                "mp3",
+                "wav",
+                "zip",
+                "md",
+                "php",
+                "html",
+                "js",
+                "css",
+                "scss",
+                "json",
+                "htm",
+                "php3"
+            ],
+        ],
+    ],
+    'images' => [
+        'thumbnail' => [
+            'dir' => 's3_thumbs',
+            'useLocalStorage' => true,
+        ],
+    ],
+    'credentials' => [
+        'region' => '{{ (datasource "cfg").s3.region }}',
+        'bucket' => '{{getenv "DASPANEL_SYS_UUID"}}',
+	    'endpoint' => 'http://daspanel-storage:9000',
+        'credentials' => [
+            'key' => '{{ (datasource "cfg").s3.access_key }}',
+            'secret' => '{{ (datasource "cfg").s3.secret_key }}',
+        ],
+	    'options' => [
+            'use_path_style_endpoint' => true,
+        ],
+        'defaultAcl' => \RFM\Repository\S3\StorageHelper::ACL_PUBLIC_READ,
+        'debug' => false,
+    ],
+];
+
 $app = new \RFM\Application();
 
 $local = new \RFM\Repository\Local\Storage($config);
-
-// example to setup files root folder
-//$local->setRoot('userfiles', true);
-
 $app->setStorage($local);
 
+// AWS S3 storage instance
+$s3 = new \RFM\Repository\S3\Storage($config_s3);
+$s3->setRoot('/', true);
+$app->setStorage($s3);
+
 // set application API
-$app->api = new RFM\Api\LocalApi();
+$app->api = new RFM\Api\AwsS3Api();
 
 $app->run();
 
