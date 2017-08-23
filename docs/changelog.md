@@ -1,20 +1,20 @@
 # Changelog - admindaspanel / daspanel-services
 
-### 0.10.0
+### 0.11.0
 __Changes__
 
-- bumped to version 0.10.0
-- A bit more of security.
-- Changed the way RichFileManager is installed.
-- Removed entries relative to python and another languages.
+- bumped to version 0.11.0
+- Improved support for CORS in RichFileManager.
+- Changed RichFileManagher to work direct with S3 storage.
+- Upgraded RichFileManager to version 2.6.1
 
 __Contributors__
 
 - Abner G Jacobsen
 - admindaspanel
 
-Released by Abner G Jacobsen, Sat 05 Aug 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.9.1...0.10.0#diff)
+Released by Abner G Jacobsen, Wed 23 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.10.0...0.11.0#diff)
 ______________
 
 ### daspanel-services-0.2.0
@@ -66,8 +66,25 @@ ______________
 __Changes__
 
 
-Released by N/A, Sat 05 Aug 2017 -
+Released by N/A, Wed 23 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
+### 0.10.0
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.10.0
+- A bit more of security.
+- Changed the way RichFileManager is installed.
+- Removed entries relative to python and another languages.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Sat 05 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.9.1...0.10.0#diff)
 ______________
 
 ### 0.9.1
