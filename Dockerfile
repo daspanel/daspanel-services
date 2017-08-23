@@ -139,13 +139,17 @@ RUN set -x \
 
     # Install RichFilemanager
     && cd /opt/daspanel/services \
-    && wget https://github.com/servocoder/RichFilemanager/archive/v2.5.1.zip \
-    && unzip v2.5.1.zip \
-    && mv RichFilemanager-2.5.1 RichFilemanager \
-    && rm v2.5.1.zip \
+    && wget https://github.com/servocoder/RichFilemanager/archive/v2.6.1.zip \
+    && unzip v2.6.1.zip \
+    && mv RichFilemanager-2.6.1 RichFilemanager \
+    && rm v2.6.1.zip \
     && cd RichFilemanager \
     && composer update \
     && composer require aws/aws-sdk-php \
+    
+    # Hack until new version of richfilemanager-php is published
+    && wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/Storage.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/Storage.php" \
+    && wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/StorageHelper.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/StorageHelper.php" \
 
     # Change www-data user and group to Daspanel default
     #&& usermod -u 1000 www-data \

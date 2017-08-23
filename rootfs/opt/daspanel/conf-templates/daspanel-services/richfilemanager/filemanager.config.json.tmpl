@@ -1,11 +1,7 @@
 {
     "_comment": "IMPORTANT : go to the wiki page to know about options configuration https://github.com/servocoder/RichFilemanager/wiki/Configuration-options",
     "options": {
-        "culture": "en",
         "theme": "flat-dark",
-        "defaultViewMode": "grid",
-        "localizeGUI": true,
-        "showFullPath": false,
         "showTitleAttr": false,
         "showConfirmation": true,
         "browseOnly": false,
@@ -27,6 +23,10 @@
             "extract"
         ]
     },
+    "language": {
+        "default": "en",
+        "available": ["ar", "bs", "ca", "cs", "da", "de", "el", "en", "es", "fi", "fr", "he", "hu", "it", "ja", "nl", "pl", "pt", "ru", "sv", "th", "tr", "vn", "zh-cn", "zh-tw"]
+    },
     "filetree": {
         "enabled": true,
         "foldersOnly": false,
@@ -37,6 +37,7 @@
         "minWidth": 200
     },
     "manager": {
+        "defaultViewMode": "grid",
         "dblClickOpen": false,
         "selection": {
             "enabled": true,
@@ -64,6 +65,14 @@
     "clipboard": {
         "enabled": true,
         "encodeCopyUrl": true
+    },
+    "filter": {
+        "image": ["jpg", "jpeg", "gif", "png", "svg"],
+        "media": ["ogv", "avi", "mkv", "mp4", "webm", "m4v", "ogg", "mp3", "wav"],
+        "office": ["txt", "pdf", "odp", "ods", "odt", "rtf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "csv", "md"],
+        "archive": ["zip", "tar", "rar"],
+        "audio": ["ogg", "mp3", "wav"],
+        "video": ["ogv", "avi", "mkv", "mp4", "webm", "m4v"]
     },
     "viewer": {
         "absolutePath": false,
@@ -144,8 +153,6 @@
                 "css",
                 "scss",
                 "json",
-                "html",
-                "htm",
                 "php3"
             ]
         },
@@ -187,6 +194,5 @@
         "extra_js_async": true
     },
     "url": "https://github.com/servocoder/RichFilemanager",
-    "version": "2.5.1"
+    "version": "2.6.1"
 }
-
