@@ -1,8 +1,10 @@
 # Changelog - admindaspanel / daspanel-services
 
-### 0.12.0
+### 0.13.0
 __Changes__
 
+- bumped to version 0.13.0
+- See changes in CHANGELOG.md
 - bumped to version 0.12.0
 - Filemabger auth using own user.
 
@@ -12,7 +14,7 @@ __Contributors__
 - admindaspanel
 
 Released by Abner G Jacobsen, Thu 24 Aug 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.11.0...0.12.0#diff)
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.11.0...0.13.0#diff)
 ______________
 
 ### daspanel-services-0.2.0
