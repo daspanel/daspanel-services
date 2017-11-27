@@ -134,7 +134,12 @@ $config = [
                 
             ],         
         ],             
-    ],                                                                 
+    ],
+    'logger' => [
+        'enabled' => true,
+        'file' => '/opt/daspanel/data/filemanager.log',
+    ],
+
 ];  
 
 $config_s3 = [
@@ -203,7 +208,8 @@ $config_s3 = [
             'use_path_style_endpoint' => true,
         ],
         'defaultAcl' => \RFM\Repository\S3\StorageHelper::ACL_PUBLIC_READ,
-        'debug' => false,
+        //'defaultAcl' => \RFM\Repository\S3\StorageHelper::ACL_BUCKET_OWNER_FULL_CONTROL,
+        'debug' => true,
     ],
 ];
 

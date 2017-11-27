@@ -1,21 +1,31 @@
+FROM golang:1.9-alpine3.6 as builder-caddy
+LABEL maintainer="ulrich.schreiner@gmail.com"
+
+ENV CADDY_VERSION v0.10.10
+
+# Inject files in container file system
+COPY caddy-build /caddy-build
+
+RUN apk --no-cache update \
+    && apk --no-cache --update add git bash \
+    && cd /caddy-build \
+    && env OS=linux ARCH=amd64 ./build_caddy.sh \
+    && ls -la /caddy-build/caddy
+
 FROM alpine:3.6
 MAINTAINER Abner G Jacobsen - http://daspanel.com <admin@daspanel.com>
 
-# Thanks:
-#   https://github.com/openbridge/ob_php-fpm
+# Copy bynaries build before
+COPY --from=builder-caddy /caddy-build/caddy /usr/sbin/caddy
 
 # Parse Daspanel common arguments for the build command.
 ARG VERSION
 ARG VCS_URL
 ARG VCS_REF
 ARG BUILD_DATE
-ARG S6_OVERLAY_VERSION=v1.19.1.1
+ARG S6_OVERLAY_VERSION=v1.20.0.0
 ARG DASPANEL_IMG_NAME=daspanel-services
 ARG DASPANEL_OS_VERSION=alpine3.6
-
-# Parse Container specific arguments for the build command.
-ARG CADDY_PLUGINS="http.cors,http.expires,http.realip"
-ARG CADDY_URL="https://caddyserver.com/download/linux/amd64?plugins=${CADDY_PLUGINS}"
 
 # PHP minimal modules to install - run's Worpress, Grav and others
 ARG PHP_MINIMAL="php7-fpm php7 php7-common php7-pear php7-phar php7-posix \
@@ -139,30 +149,22 @@ RUN set -x \
 
     # Install RichFilemanager
     && cd /opt/daspanel/services \
-    && wget https://github.com/servocoder/RichFilemanager/archive/v2.6.1.zip \
-    && unzip v2.6.1.zip \
-    && mv RichFilemanager-2.6.1 RichFilemanager \
-    && rm v2.6.1.zip \
+    && wget https://github.com/servocoder/RichFilemanager/archive/v2.6.4.zip \
+    && unzip v2.6.4.zip \
+    && mv RichFilemanager-2.6.4 RichFilemanager \
+    && rm v2.6.4.zip \
     && cd RichFilemanager \
     && composer update \
     && composer require aws/aws-sdk-php \
     
     # Hack until new version of richfilemanager-php is published
-    && wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/Storage.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/Storage.php" \
-    && wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/StorageHelper.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/StorageHelper.php" \
-
-    # Change www-data user and group to Daspanel default
-    #&& usermod -u 1000 www-data \
-    #&& groupmod -g 1000 www-data \
+    #&& wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/Storage.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/Storage.php" \
+    #&& wget -O /opt/daspanel/services/RichFilemanager/connectors/php/vendor/servocoder/richfilemanager-php/src/Repository/S3/StorageHelper.php "https://raw.githubusercontent.com/servocoder/RichFilemanager-PHP/master/src/Repository/S3/StorageHelper.php" \
 
     # Remove build environment packages
     && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/${DASPANEL_IMG_NAME}/09_cleanbuildenv \
 
     # Install Caddy
-    && curl --silent --show-error --fail --location \
-        --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-        "${CADDY_URL}" \
-        | tar --no-same-owner -C /usr/sbin/ -xz caddy \
     && chmod 0755 /usr/sbin/caddy \
     && setcap "cap_net_bind_service=+ep" /usr/sbin/caddy \
 
