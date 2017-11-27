@@ -1,22 +1,19 @@
 # Changelog - admindaspanel / daspanel-services
 
-### 0.14.0
+### 0.15.0
 __Changes__
 
-- bumped to version 0.14.0
-- See changes in CHANGELOG.md
-- bumped to version 0.13.0
-- See changes in CHANGELOG.md
-- bumped to version 0.12.0
-- Filemabger auth using own user.
+- bumped to version 0.15.0
+- Upgraded Richfilemanager to version 2.6.4.
+- The Caddy server is, from now on, compiled from sources and is no longer downloaded as a binary - as required by Caddy's new licensing rules. Caddy was also upgraded to version v0.10.10
 
 __Contributors__
 
 - Abner G Jacobsen
 - admindaspanel
 
-Released by Abner G Jacobsen, Thu 24 Aug 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.11.0...0.14.0#diff)
+Released by Abner G Jacobsen, Mon 27 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.14.0...0.15.0#diff)
 ______________
 
 ### daspanel-services-0.2.0
@@ -68,8 +65,27 @@ ______________
 __Changes__
 
 
-Released by N/A, Thu 24 Aug 2017 -
+Released by N/A, Mon 27 Nov 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
+### 0.14.0
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.14.0
+- See changes in CHANGELOG.md
+- bumped to version 0.13.0
+- See changes in CHANGELOG.md
+- bumped to version 0.12.0
+- Filemabger auth using own user.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Thu 24 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.11.0...0.14.0#diff)
 ______________
 
 ### 0.11.0
