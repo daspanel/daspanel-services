@@ -85,7 +85,7 @@ function fm_has_write_permission($filepath)
 $config = [                                    
         'options' => [     
                 'serverRoot' => false,                                            
-                'fileRoot' => '/opt/daspanel/data',                
+                'fileRoot' => '/opt/daspanel/data/{{getenv "DASPANEL_SYS_UUID"}}',                
         ],
     'security' => [                                                                   
         'readOnly' => false,
@@ -136,7 +136,7 @@ $config = [
         ],             
     ],
     'logger' => [
-        'enabled' => true,
+        'enabled' => false,
         'file' => '/opt/daspanel/data/filemanager.log',
     ],
 
@@ -208,8 +208,7 @@ $config_s3 = [
             'use_path_style_endpoint' => true,
         ],
         'defaultAcl' => \RFM\Repository\S3\StorageHelper::ACL_PUBLIC_READ,
-        //'defaultAcl' => \RFM\Repository\S3\StorageHelper::ACL_BUCKET_OWNER_FULL_CONTROL,
-        'debug' => true,
+        'debug' => false,
     ],
 ];
 
@@ -219,12 +218,13 @@ $local = new \RFM\Repository\Local\Storage($config);
 $app->setStorage($local);
 
 // AWS S3 storage instance
-$s3 = new \RFM\Repository\S3\Storage($config_s3);
-$s3->setRoot('/', true);
-$app->setStorage($s3);
+//$s3 = new \RFM\Repository\S3\Storage($config_s3);
+//$s3->setRoot('/', true);
+//$app->setStorage($s3);
 
 // set application API
-$app->api = new RFM\Api\AwsS3Api();
+//$app->api = new RFM\Api\AwsS3Api();
+$app->api = new RFM\Api\LocalApi();
 
 $app->run();
 
