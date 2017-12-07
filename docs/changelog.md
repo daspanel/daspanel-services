@@ -1,19 +1,18 @@
 # Changelog - admindaspanel / daspanel-services
 
-### 0.15.0
+### 0.15.1
 __Changes__
 
-- bumped to version 0.15.0
-- Upgraded Richfilemanager to version 2.6.4.
-- The Caddy server is, from now on, compiled from sources and is no longer downloaded as a binary - as required by Caddy's new licensing rules. Caddy was also upgraded to version v0.10.10
+- bumped to version 0.15.1
+- Temporarily removed direct access to the S3 server while we do not have a stable version of RichFilemanager running on S3.
 
 __Contributors__
 
 - Abner G Jacobsen
 - admindaspanel
 
-Released by Abner G Jacobsen, Mon 27 Nov 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.14.0...0.15.0#diff)
+Released by Abner G Jacobsen, Thu 07 Dec 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.15.0...0.15.1#diff)
 ______________
 
 ### daspanel-services-0.2.0
@@ -65,8 +64,24 @@ ______________
 __Changes__
 
 
-Released by N/A, Mon 27 Nov 2017 -
+Released by N/A, Thu 07 Dec 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
+### 0.15.0
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.15.0
+- Upgraded Richfilemanager to version 2.6.4.
+- The Caddy server is, from now on, compiled from sources and is no longer downloaded as a binary - as required by Caddy's new licensing rules. Caddy was also upgraded to version v0.10.10
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Mon 27 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.14.0...0.15.0#diff)
 ______________
 
 ### 0.14.0
