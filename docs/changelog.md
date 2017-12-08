@@ -1,9 +1,9 @@
 # Changelog - admindaspanel / daspanel-services
 
-### 0.15.2
+### 0.15.3
 __Changes__
 
-- bumped to version 0.15.2
+- bumped to version 0.15.3
 - Added vue extension to allowed files in the file manager.
 
 __Contributors__
@@ -12,7 +12,7 @@ __Contributors__
 - admindaspanel
 
 Released by Abner G Jacobsen, Thu 07 Dec 2017 -
-[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.15.1...0.15.2#diff)
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.15.2...0.15.3#diff)
 ______________
 
 ### daspanel-services-0.2.0
@@ -66,6 +66,21 @@ __Changes__
 
 Released by N/A, Thu 07 Dec 2017 -
 [see the diff](https://github.com/admindaspanel/daspanel-services/compare/...#diff)
+______________
+
+### 0.15.2
+__Changes__
+
+- See changes in CHANGELOG.md
+- bumped to version 0.15.2
+- Added vue extension to allowed files in the file manager.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Thu 07 Dec 2017 -
+[see the diff](https://github.com/admindaspanel/daspanel-services/compare/0.15.1...0.15.2#diff)
 ______________
 
 ### 0.15.1
